@@ -16,6 +16,16 @@ public class TestSong {
     }
 
     @Test
+    void testConstructor(){
+        assertEquals("Test", testSong.getTitle());
+        assertEquals("Me", testSong.getArtist());
+        assertEquals("Guitar", testSong.getInstrument());
+        assertFalse(testSong.isLearning());
+        assertFalse(testSong.isLearned());
+        assertFalse(testSong.isFavourite());
+    }
+
+    @Test
     void testGetTitle() {
         assertEquals("Test", testSong.getTitle());
     }
@@ -31,7 +41,7 @@ public class TestSong {
     }
 
     @Test
-    void testIsLearning() {
+    void testGetLearning() {
         assertFalse(testSong.isLearning());
     }
 
