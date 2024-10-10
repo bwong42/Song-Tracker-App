@@ -40,4 +40,15 @@ public class TestSongsToLearn {
         assertEquals(2, songs.size());
 
     }
+
+    @Test
+    void RemoveSong(){
+        testSongsToLearn.addSongToSongsToLearn(s1);
+        testSongsToLearn.addSongToSongsToLearn(s2);
+        testSongsToLearn.removeSongToSongsToLearn(s1);
+        ArrayList<Song> songs = testSongsToLearn.getSongs();
+        assertEquals(s2, songs.get(0));
+        assertEquals(1, songs.size());
+
+    }
 }
