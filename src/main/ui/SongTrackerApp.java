@@ -67,6 +67,7 @@ public class SongTrackerApp {
             System.out.println("\n--- Songs To Learn ---");
             System.out.println("\t a -> add a song");
             System.out.println("\t b -> remove a song");
+            System.out.println("\t c -> choose song to laern");
             System.out.println("\t q -> quit");
             if ((songsToLearn.getSongs()).isEmpty()){
                 System.out.println("You have no songs on your learn list");
@@ -82,13 +83,17 @@ public class SongTrackerApp {
             if(command.equals("a")){
                 addSongToLearn();
             } else if (command.equals("b")){
-                // removeSongToLearn();
+                removeSongToLearn();
+            } else if (command.equals("c")){
+                markLearning();
             } else if (command.equals("q")){
                 inSongsToLearn = false;
             } else {
                 System.out.println("Not valid choice");
             }}}
 
+    // EFFECTS: Takes user input for title, artist and instrument,
+    // converts this into a song and adds song into songsToLearn
     private void addSongToLearn(){
         System.out.println("Enter a Title");
         String title = input.next();
@@ -101,11 +106,58 @@ public class SongTrackerApp {
 
     }
 
+    // EFFECTS: Takes user input to choose the song that they want to
+    // mark as currently learning. Marks song as learned, removes song
+    // from songsToLearn and adds song to songsLearning
+    private void markLearning(){
+        System.out.println("Choose an song using the number in the order it appears in (top to bottom)");
+        String index = input.next();
+        int number = Integer.parseInt(index);
+        Song learningSong = songsToLearn.getSong(number - 1);
+        learningSong.isLearned();
+        songsToLearn.removeSongToSongsToLearn(learningSong);
+        songsLearning.addSongToSongsLearning(learningSong);
+    }
+
+    // EFFECTS: Takes user input to choose the song that they want to
+    // remove. Removes song from songsToLearn.
+    private void removeSongToLearn(){
+        System.out.println("Choose an song using the number in the order it appears in (top to bottom)");
+        String index = input.next();
+        int number = Integer.parseInt(index);
+        Song learntSong = songsToLearn.getSong(number - 1);
+        songsToLearn.removeSongToSongsToLearn(learntSong);
+    }
 
     // EFFECTS: Prints all of the songs in SongsLearning
     // and gives user option to add or remove song 
     private void viewSongsLearning() {
-        // TODO STUB
+        boolean inSongsLearning = true;
+        while(inSongsLearning){
+            System.out.println("\n--- Songs Currently Learning ---");
+            System.out.println("\t a -> remove a song");
+            System.out.println("\t b -> mark song as finished learning");
+            System.out.println("\t q -> quit");
+            if ((songsLearning.getSongs()).isEmpty()){
+                System.out.println("You have no songs currently learning");
+            } else {
+                for(Song song: songsLearning.getSongs()){
+                    System.out.println("\n\nTitle:" + song.getTitle() +
+                                       "\nArtist:" + song.getArtist() +
+                                       "\nInstrument:" + song.getInstrument());
+                }
+            }
+            String command = input.next();
+            command = command.toLowerCase();
+            if(command.equals("a")){
+                //removeSongLearning();
+            } else if (command.equals("b")){
+                //markLearned();
+            } else if (command.equals("q")){
+                inSongsLearning = false;
+            } else {
+                System.out.println("Not valid choice");
+            }}
     }
 
     // EFFECTS: Prints all of the songs in SongsLearned
