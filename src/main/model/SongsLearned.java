@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SongsLearned {
     private ArrayList<Song> songsLearned;
