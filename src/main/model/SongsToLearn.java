@@ -14,12 +14,13 @@ public class SongsToLearn {
 
         }
 
-    //EFFECTS: Adds song to SongsToLearn
+    // EFFECTS: Adds song to SongsToLearn
     public void addSongToSongsToLearn(Song song){
         this.songsLearning.add(song);
     }
 
-    //EFFECTS: Removes song from SongsToLearn
+    // REQUIRES: songsLearning is non-empty
+    // EFFECTS: Removes song from SongsToLearn
     public void removeSongToSongsToLearn(Song song){
         this.songsLearning.remove(song);
     }
