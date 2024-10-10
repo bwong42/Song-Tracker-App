@@ -16,17 +16,17 @@ public class SongsLearning {
 
     // EFFECTS: Adds song to SongsLearning
     public void addSongToSongsLearning(Song song){
-        //STUB
+        this.songsLearning.add(song);
     }
 
     // REQUIRES: SongsLearning must be non-empty
-    // EFFECTS: Adds song to SongsLearning
+    // EFFECTS: Removes song from SongsLearning
     public void removeSongToSongsLearning(Song song){
-        //STUB
+        this.songsLearning.remove(song);
     }
 
     public ArrayList<Song> getSongs(){
-        //STUB
+        return this.songsLearning;
     }
     }
 
