@@ -12,7 +12,6 @@ public class TestSongsLearned {
     private Song s1;
     private Song s2;
 
-    
     @BeforeEach
     void runBefore() {
         testSongsLearned = new SongsLearned();
@@ -22,7 +21,7 @@ public class TestSongsLearned {
     }
 
     @Test
-    void testAddOneSong(){
+    void testAddOneSong() {
         testSongsLearned.addSongToSongsLearned(s1);
         ArrayList<Song> songs = testSongsLearned.getSongs();
         assertEquals(s1, songs.get(0));
@@ -31,7 +30,7 @@ public class TestSongsLearned {
     }
 
     @Test
-    void testAddTwoSongs(){
+    void testAddTwoSongs() {
         testSongsLearned.addSongToSongsLearned(s1);
         testSongsLearned.addSongToSongsLearned(s2);
         ArrayList<Song> songs = testSongsLearned.getSongs();
@@ -42,7 +41,7 @@ public class TestSongsLearned {
     }
 
     @Test
-    void testGetSong(){
+    void testGetSong() {
         testSongsLearned.addSongToSongsLearned(s1);
         testSongsLearned.addSongToSongsLearned(s2);
         assertEquals(s1, testSongsLearned.getSong(0));
@@ -50,7 +49,7 @@ public class TestSongsLearned {
     }
 
     @Test
-    void RemoveSong(){
+    void RemoveSong() {
         testSongsLearned.addSongToSongsLearned(s1);
         testSongsLearned.addSongToSongsLearned(s2);
         testSongsLearned.removeSongToSongsLearned(s1);
