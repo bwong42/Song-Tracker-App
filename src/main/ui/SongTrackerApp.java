@@ -89,9 +89,9 @@ public class SongTrackerApp {
     // title, artist and instrument
     private void printSongsSongsToLearn() {
         for (Song song : songsToLearn.getSongs()) {
-            System.out.println("\n\nTitle:" + song.getTitle() +
-                    "\nArtist:" + song.getArtist() +
-                    "\nInstrument:" + song.getInstrument());
+            System.out.println("\n\nTitle:" + song.getTitle() 
+                    + "\nArtist:" + song.getArtist() 
+                    + "\nInstrument:" + song.getInstrument());
         }
     }
 
@@ -173,9 +173,9 @@ public class SongTrackerApp {
     // title, artist and instrument
     private void printSongsSongsLearning() {
         for (Song song : songsLearning.getSongs()) {
-            System.out.println("\n\nTitle:" + song.getTitle() +
-                    "\nArtist:" + song.getArtist() +
-                    "\nInstrument:" + song.getInstrument());
+            System.out.println("\n\nTitle:" + song.getTitle() 
+                    + "\nArtist:" + song.getArtist() 
+                    + "\nInstrument:" + song.getInstrument());
         }
     }
 
@@ -237,9 +237,9 @@ public class SongTrackerApp {
 
     private void printSongsSongsLearned() {
         for (Song song : songsLearned.getSongs()) {
-            System.out.println("\n\nTitle:" + song.getTitle() +
-                    "\nArtist:" + song.getArtist() +
-                    "\nInstrument:" + song.getInstrument());
+            System.out.println("\n\nTitle:" + song.getTitle() 
+                    + "\nArtist:" + song.getArtist() 
+                    + "\nInstrument:" + song.getInstrument());
             if (song.isFavourite()) {
                 System.out.println("FAVOURITED");
             }

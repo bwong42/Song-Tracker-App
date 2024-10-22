@@ -49,7 +49,7 @@ public class TestSongsLearned {
     }
 
     @Test
-    void RemoveSong() {
+    void removeSong() {
         testSongsLearned.addSongToSongsLearned(s1);
         testSongsLearned.addSongToSongsLearned(s2);
         testSongsLearned.removeSongToSongsLearned(s1);
