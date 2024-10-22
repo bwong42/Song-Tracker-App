@@ -2,8 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+// Represents an list of songs called songsLearned
 public class SongsLearned {
-    private ArrayList<Song> songsLearned;
+    private ArrayList<Song> songsLearned; // An array list of song
 
     /**
      * EFFECTS: SongsLearned is initially set to empty.

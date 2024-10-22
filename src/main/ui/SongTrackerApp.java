@@ -7,6 +7,10 @@ import model.SongsLearned;
 import model.SongsLearning;
 import model.SongsToLearn;
 
+// Represents a SongTrackerApp which has the fields songsToLearn,
+// songsLearning, songsLearned and Scanner to track input, contains
+// all of the lists and allows for them to be viewed, and add or remove
+// song from each list
 public class SongTrackerApp {
     private SongsToLearn songsToLearn;
     private SongsLearning songsLearning;
@@ -235,6 +239,8 @@ public class SongTrackerApp {
         }
     }
 
+    // REQUIRES: songsLearned is non-empty
+    // EFFECTS: Prints all of the songs in songsLearned
     private void printSongsSongsLearned() {
         for (Song song : songsLearned.getSongs()) {
             System.out.println("\n\nTitle:" + song.getTitle() 
