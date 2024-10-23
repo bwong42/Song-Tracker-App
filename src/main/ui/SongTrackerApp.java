@@ -1,21 +1,28 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.Song;
 import model.SongsLearned;
 import model.SongsLearning;
 import model.SongsToLearn;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 // Represents a SongTrackerApp which has the fields songsToLearn,
 // songsLearning, songsLearned and Scanner to track input, contains
 // all of the lists and allows for them to be viewed, and add or remove
-// song from each list
+// song from each list. Also declares the jsonWriter and jsonReader fields
+// to allow for the saving and loading of our application states.
 public class SongTrackerApp {
     private SongsToLearn songsToLearn;
     private SongsLearning songsLearning;
     private SongsLearned songsLearned;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: starts runSongTracker()
     public SongTrackerApp() {
@@ -284,5 +291,28 @@ public class SongTrackerApp {
         songsToLearn = new SongsToLearn();
         songsLearning = new SongsLearning();
         songsLearned = new SongsLearned();
+    }
+
+    // EFFECTS: saves the workroom to file
+    private void saveWorkRoom() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(workRoom);
+            jsonWriter.close();
+            System.out.println("Saved " + workRoom.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadWorkRoom() {
+        try {
+            workRoom = jsonReader.read();
+            System.out.println("Loaded " + workRoom.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }
