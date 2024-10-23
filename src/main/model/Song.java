@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 // Represents a song that has title, instrument, learned, favourite.
 public class Song {
     private String title; // title of song
@@ -60,6 +62,14 @@ public class Song {
 
     public Boolean makeFavourite() {
         return favourite = true;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("artist", artist);
+        json.put("instrument", instrument);
+        return json;
     }
 
 }
