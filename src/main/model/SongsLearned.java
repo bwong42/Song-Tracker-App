@@ -47,7 +47,7 @@ public class SongsLearned {
     private JSONArray thingiesToJson() {
         JSONArray jsonArray = new JSONArray();
 
-        for (Song song: songsLearned) {
+        for (Song song : songsLearned) {
             jsonArray.put(song.toJson());
         }
 
