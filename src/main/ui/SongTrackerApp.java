@@ -64,6 +64,10 @@ public class SongTrackerApp {
             viewSongsLearning();
         } else if (command.equals("c")) {
             viewSongsLearned();
+        } else if (command.equals("s")) {
+            saveSongTracker();
+        } else if (command.equals("l")) {
+            loadSongTracker();
         } else {
             System.out.println("Invalid Choice");
         }
@@ -283,6 +287,8 @@ public class SongTrackerApp {
         System.out.println("\ta -> view songs to learn");
         System.out.println("\tb -> view songs learning");
         System.out.println("\tc -> view songs learned");
+        System.out.println("\ts -> save application status to file");
+        System.out.println("\tl -> load application status from file");
         System.out.println("\tq -> quit application");
     }
 
@@ -292,6 +298,8 @@ public class SongTrackerApp {
         songsToLearn = new SongsToLearn();
         songsLearning = new SongsLearning();
         songsLearned = new SongsLearned();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: saves the workroom to file
