@@ -22,7 +22,7 @@ public class JsonReader {
 
     // EFFECTS: reads workroom from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public WorkRoom read() throws IOException {
+    public SongsToLearn read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseWorkRoom(jsonObject);
@@ -40,30 +40,29 @@ public class JsonReader {
     }
 
     // EFFECTS: parses workroom from JSON object and returns it
-    private WorkRoom parseWorkRoom(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
-        WorkRoom wr = new WorkRoom(name);
-        addThingies(wr, jsonObject);
-        return wr;
+    private SongsToLearn parseWorkRoom(JSONObject jsonObject) {
+        SongsToLearn songsToLearn = new SongsToLearn();
+        addSongsSongsToLearn(songsToLearn, jsonObject);
+        return songsToLearn;
     }
 
     // MODIFIES: wr
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
-    private void addThingies(WorkRoom wr, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("thingies");
+    // EFFECTS: parses songs from JSON object and adds them to SongsToLearn
+    private void addSongsSongsToLearn(SongsToLearn songsToLearn, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("songs");
         for (Object json : jsonArray) {
             JSONObject nextThingy = (JSONObject) json;
-            addThingy(wr, nextThingy);
+            addSongSongsToLearn(songsToLearn, nextThingy);
         }
     }
 
     // MODIFIES: song
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
-    private void addSong(SongsToLearn stl, JSONObject jsonObject) {
+    // EFFECTS: parses song from JSON object and adds it to SongsToLearn
+    private void addSongSongsToLearn(SongsToLearn songsToLearn, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
-        String artist = jsonObject.getString("title");
+        String artist = jsonObject.getString("artist");
         String instrument = jsonObject.getString("instrument");
         Song song = new Song(title, artist, instrument);
-        stl.addSongToSongsToLearn(song);
+        songsToLearn.addSongToSongsToLearn(song);
     }
 }
