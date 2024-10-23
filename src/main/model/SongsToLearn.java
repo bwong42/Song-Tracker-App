@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 // Represents an list of songs called songsToLearn
 public class SongsToLearn {
     private ArrayList<Song> songsToLearn; // An array list of song
@@ -31,6 +34,24 @@ public class SongsToLearn {
 
     public ArrayList<Song> getSongs() {
         return this.songsToLearn;
+    }
+
+    // EFFECTS: creates a new JSONObject and puts songs in it
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("songs", songsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns songs in SongsToLearn as a JSON array
+    private JSONArray songsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Song song: songsToLearn) {
+            jsonArray.put(song.toJson());
+        }
+
+        return jsonArray;
     }
 
 }
