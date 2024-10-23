@@ -43,11 +43,11 @@ public class SongsLearning {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns songs in songsLearning as a JSON array
     private JSONArray songsToJson() {
         JSONArray jsonArray = new JSONArray();
 
-        for (Song song: songsLearning) {
+        for (Song song : songsLearning) {
             jsonArray.put(song.toJson());
         }
 
