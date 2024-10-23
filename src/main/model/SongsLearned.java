@@ -39,12 +39,12 @@ public class SongsLearned {
     // EFFECTS: creates a new JSONObject and puts songs in it
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("songs", thingiesToJson());
+        json.put("songs", songsToJson());
         return json;
     }
 
     // EFFECTS: returns songs in songsLearned as a JSON array
-    private JSONArray thingiesToJson() {
+    private JSONArray songsToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Song song : songsLearned) {
