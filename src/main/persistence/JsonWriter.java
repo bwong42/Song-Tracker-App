@@ -26,20 +26,14 @@ public class JsonWriter {
         writer = new PrintWriter(new File(destination));
     }
 
-    // MODIFIES: this
-    // EFFECTS: writes JSON representation of workroom to file
-    public void write(SongsToLearn songsToLearn) {
-        JSONObject json = songsToLearn.toJson();
-        saveToFile(json.toString(TAB));
-    }
-
-    public void write(SongsLearning songsLearning) {
-        JSONObject json = songsLearning.toJson();
-        saveToFile(json.toString(TAB));
-    }
-
-    public void write(SongsLearned songsLearned) {
-        JSONObject json = songsLearned.toJson();
+    public void write(SongsToLearn songsToLearn, SongsLearning songsLearning, SongsLearned songsLearned) {
+        JSONObject json = new JSONObject();
+        
+        // Add each list to the main JSON object
+        json.put("songsToLearn", songsToLearn.toJson()); 
+        json.put("songsLearning", songsLearning.toJson()); 
+        json.put("songsLearned", songsLearned.toJson());
+        
         saveToFile(json.toString(TAB));
     }
 
