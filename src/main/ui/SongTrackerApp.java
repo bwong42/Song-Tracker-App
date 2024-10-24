@@ -107,8 +107,8 @@ public class SongTrackerApp {
     // title, artist and instrument
     private void printSongsSongsToLearn() {
         for (Song song : songsToLearn.getSongs()) {
-            System.out.println("\n\nTitle:" + song.getTitle() 
-                    + "\nArtist:" + song.getArtist() 
+            System.out.println("\n\nTitle:" + song.getTitle()
+                    + "\nArtist:" + song.getArtist()
                     + "\nInstrument:" + song.getInstrument());
         }
     }
@@ -190,8 +190,8 @@ public class SongTrackerApp {
     // title, artist and instrument
     private void printSongsSongsLearning() {
         for (Song song : songsLearning.getSongs()) {
-            System.out.println("\n\nTitle:" + song.getTitle() 
-                    + "\nArtist:" + song.getArtist() 
+            System.out.println("\n\nTitle:" + song.getTitle()
+                    + "\nArtist:" + song.getArtist()
                     + "\nInstrument:" + song.getInstrument());
         }
     }
@@ -255,8 +255,8 @@ public class SongTrackerApp {
     // EFFECTS: Prints all of the songs in songsLearned
     private void printSongsSongsLearned() {
         for (Song song : songsLearned.getSongs()) {
-            System.out.println("\n\nTitle:" + song.getTitle() 
-                    + "\nArtist:" + song.getArtist() 
+            System.out.println("\n\nTitle:" + song.getTitle()
+                    + "\nArtist:" + song.getArtist()
                     + "\nInstrument:" + song.getInstrument());
             if (song.isFavourite()) {
                 System.out.println("FAVOURITED");
@@ -305,7 +305,7 @@ public class SongTrackerApp {
     // EFFECTS: saves the workroom to file
     private void saveSongTracker() {
         try {
-            jsonWriter.open(); 
+            jsonWriter.open();
             jsonWriter.write(songsToLearn, songsLearning, songsLearned);
             jsonWriter.close();
             System.out.println("Saved " + "Song Tracker Status" + " to " + JSON_STORE);
