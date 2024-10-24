@@ -20,8 +20,6 @@ public class TestSong {
         assertEquals("Test", testSong.getTitle());
         assertEquals("Me", testSong.getArtist());
         assertEquals("Guitar", testSong.getInstrument());
-        assertFalse(testSong.isLearning());
-        assertFalse(testSong.isLearned());
         assertFalse(testSong.isFavourite());
     }
 
@@ -41,28 +39,8 @@ public class TestSong {
     }
 
     @Test
-    void testGetLearning() {
-        assertFalse(testSong.isLearning());
-    }
-
-    @Test
-    void testGetLearned() {
-        assertFalse(testSong.isLearned());
-    }
-
-    @Test
     void testGetFavourite() {
         assertFalse(testSong.isFavourite());
-    }
-
-    @Test
-    void testMakeLearning() {
-        assertTrue(testSong.makeLearning());
-    }
-
-    @Test
-    void testMakeLearned() {
-        assertTrue(testSong.makeLearned());
     }
 
     @Test
