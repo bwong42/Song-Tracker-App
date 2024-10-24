@@ -51,6 +51,7 @@ public class Song {
         json.put("title", title);
         json.put("artist", artist);
         json.put("instrument", instrument);
+        json.put("favourite", favourite);
         return json;
     }
 
