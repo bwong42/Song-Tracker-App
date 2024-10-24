@@ -85,7 +85,13 @@ public class JsonReader {
         String title = jsonObject.getString("title");
         String artist = jsonObject.getString("artist");
         String instrument = jsonObject.getString("instrument");
+        boolean favourite = jsonObject.getBoolean("favourite");
         Song song = new Song(title, artist, instrument);
+
+        if (favourite) {
+            song.makeFavourite();
+        }
+
         songsToLearn.addSongToSongsToLearn(song);
     }
 
@@ -112,7 +118,13 @@ public class JsonReader {
         String title = jsonObject.getString("title");
         String artist = jsonObject.getString("artist");
         String instrument = jsonObject.getString("instrument");
+        boolean favourite = jsonObject.getBoolean("favourite");
         Song song = new Song(title, artist, instrument);
+
+        if (favourite) {
+            song.makeFavourite();
+        }
+
         songsLearning.addSongToSongsLearning(song);
     }
 
@@ -139,7 +151,13 @@ public class JsonReader {
         String title = jsonObject.getString("title");
         String artist = jsonObject.getString("artist");
         String instrument = jsonObject.getString("instrument");
+        boolean favourite = jsonObject.getBoolean("favourite");
         Song song = new Song(title, artist, instrument);
+
+        if (favourite) {
+            song.makeFavourite();
+        }
+
         songsLearned.addSongToSongsLearned(song);
     }
 
