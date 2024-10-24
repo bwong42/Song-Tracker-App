@@ -7,8 +7,6 @@ public class Song {
     private String title; // title of song
     private String artist; // artist of song
     private String instrument; // instrument of song to learn
-    private Boolean learning; // currently learning song?
-    private Boolean learned; // is song learned or not?
     private Boolean favourite; // is song favourited?
 
     /*
@@ -22,9 +20,6 @@ public class Song {
         this.title = title;
         this.artist = artist;
         this.instrument = instrument;
-
-        this.learning = false;
-        this.learned = false;
         this.favourite = false;
     }
 
@@ -40,24 +35,8 @@ public class Song {
         return instrument;
     }
 
-    public Boolean isLearning() {
-        return learning;
-    }
-
-    public Boolean isLearned() {
-        return learned;
-    }
-
     public Boolean isFavourite() {
         return favourite;
-    }
-
-    public Boolean makeLearning() {
-        return learning = true;
-    }
-
-    public Boolean makeLearned() {
-        return learned = true;
     }
 
     public Boolean makeFavourite() {
