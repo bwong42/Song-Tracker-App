@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 class TestJsonReader extends TestJson {
 
     @Test
@@ -30,15 +32,6 @@ class TestJsonReader extends TestJson {
     void testReaderEmptyWorkRoom() {
         JsonReader reader = new JsonReader("./data/testReaderEmptySongTracker.json");
         try {
-            // SongsToLearn songsToLearn = reader.readSongsToLearn();
-            // SongsLearning songsLearning = reader.readSongsLearning();
-            // SongsLearned songsLearned = reader.readSongsLearned();
-            // ArrayList<Song> toLearn = songsToLearn.getSongs();
-            // ArrayList<Song> learning = songsLearning.getSongs();
-            // ArrayList<Song> learned = songsLearned.getSongs();
-            // assertEquals(0, toLearn.size());
-            // assertEquals(0, learning.size());
-            // assertEquals(0, learned.size());
             JSONObject jsonObject = reader.read();
             assertTrue(jsonObject.isEmpty());
         } catch (IOException e) {
@@ -62,7 +55,7 @@ class TestJsonReader extends TestJson {
             checkSong("a", "a", "a", learning.get(1));
             checkSong("z", "z", "z", learning.get(0));
             assertEquals(1, learned.size());
-            checkSong("Star", "Ben", "car", learned.get(0));   
+            checkSong("Star", "Ben", "car", learned.get(0));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

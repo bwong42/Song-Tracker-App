@@ -43,6 +43,8 @@ public class Song {
         return favourite = true;
     }
 
+    // Referenced from the JsonSerialization Demo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // MODIFIES: this
     // REQUIRES:
     // EFFECTS: Puts title, artist and instrument of song to JSONObject

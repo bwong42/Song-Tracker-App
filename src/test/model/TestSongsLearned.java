@@ -85,6 +85,6 @@ public class TestSongsLearned {
         assertEquals("Test Song 2", song2Json.getString("title"));
         assertEquals("Artist 2", song2Json.getString("artist"));
         assertEquals("Piano", song2Json.getString("instrument"));
-        assertFalse(song2Json.getBoolean("favourite")); 
+        assertFalse(song2Json.getBoolean("favourite"));
     }
 }

@@ -12,10 +12,14 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Referenced from the JsonSerialization Demo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 class TestJsonWriter extends TestJson {
-    //NOTE TO CPSC 210 STUDENTS: the strategy in designing tests for the JsonWriter is to
-    //write data to a file and then use the reader to read it back in and check that we
-    //read in a copy of what was written out.
+    // NOTE TO CPSC 210 STUDENTS: the strategy in designing tests for the JsonWriter
+    // is to
+    // write data to a file and then use the reader to read it back in and check
+    // that we
+    // read in a copy of what was written out.
 
     @Test
     void testWriterInvalidFile() {
@@ -70,7 +74,6 @@ class TestJsonWriter extends TestJson {
             writer.open();
             writer.write(toLearn, learning, learned);
             writer.close();
-
             JsonReader reader = new JsonReader("./data/testWriterGeneralSongTracker.json");
             toLearn = reader.readSongsToLearn();
             learning = reader.readSongsLearning();
@@ -87,7 +90,6 @@ class TestJsonWriter extends TestJson {
             assertEquals(2, songsLearned.size());
             checkSong("none", "ok", "xylophone", songsLearned.get(0));
             checkSong("Star", "Ben", "car", songsLearned.get(1));
-
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }

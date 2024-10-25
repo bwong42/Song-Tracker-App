@@ -36,6 +36,8 @@ public class SongsLearned {
         return this.songsLearned;
     }
 
+    // Referenced from the JsonSerialization Demo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: creates a new JSONObject and puts songs in it
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -43,6 +45,8 @@ public class SongsLearned {
         return json;
     }
 
+    // Referenced from the JsonSerialization Demo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // EFFECTS: returns songs in songsLearned as a JSON array
     private JSONArray songsToJson() {
         JSONArray jsonArray = new JSONArray();
