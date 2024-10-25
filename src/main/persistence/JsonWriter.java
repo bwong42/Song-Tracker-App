@@ -22,12 +22,13 @@ public class JsonWriter {
 
     // MODIFIES: this
     // EFFECTS: opens writer; throws FileNotFoundException if destination file
-    // cannot
-    // be opened for writing
+    // cannot be opened for writing
     public void open() throws FileNotFoundException {
         writer = new PrintWriter(new File(destination));
     }
 
+    // EFFECTS: writes songsToLearn, songsLearning and songsLearned to the main JSON
+    // object
     public void write(SongsToLearn songsToLearn, SongsLearning songsLearning, SongsLearned songsLearned) {
         JSONObject json = new JSONObject();
 

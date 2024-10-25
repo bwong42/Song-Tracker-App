@@ -47,7 +47,8 @@ public class Song {
     // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // MODIFIES: this
     // REQUIRES:
-    // EFFECTS: Puts title, artist and instrument of song to JSONObject
+    // EFFECTS: Puts title, artist, instrument and favourite status
+    // of song to JSONObject
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("title", title);

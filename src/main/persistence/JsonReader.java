@@ -24,6 +24,8 @@ public class JsonReader {
         this.source = source;
     }
 
+    // EFFECTS: reads JSONObject from file and returns it;
+    // throws IOException if an error occurs reading data from file
     public JSONObject read() throws IOException {
         String jsonData = readFile(source);
         return new JSONObject(jsonData); // Return the full JSON object containing all lists
