@@ -304,7 +304,7 @@ public class SongTrackerApp {
 
     // Referenced from the JsonSerialization Demo
     // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
-    // EFFECTS: saves the songtracker to file
+    // EFFECTS: saves songsToLearn, songsLearning, songsLearned to file
     private void saveSongTracker() {
         try {
             jsonWriter.open();
@@ -319,7 +319,7 @@ public class SongTrackerApp {
     // Referenced from the JsonSerialization Demo
     // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
     // MODIFIES: this
-    // EFFECTS: loads songtracker from file
+    // EFFECTS: loads songsToLearn, songsLearning, songsLearned from file
     private void loadSongTracker() {
         try {
             JSONObject jsonObject = jsonReader.read();

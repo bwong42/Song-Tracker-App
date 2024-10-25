@@ -15,7 +15,7 @@ import org.json.*;
 
 // Referenced from the JsonSerialization Demo
 // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
-// Represents a reader that reads workroom from JSON data stored in file
+// Represents a reader that reads songtracker from JSON data stored in file
 public class JsonReader {
     private String source;
 
@@ -100,15 +100,15 @@ public class JsonReader {
         songsToLearn.addSongToSongsToLearn(song);
     }
 
-    // EFFECTS: parses SongsToLearn from JSON object and returns it
+    // EFFECTS: parses SongsLearning from JSON object and returns it
     public SongsLearning parseSongsLearning(JSONObject jsonObject) {
         SongsLearning songsLearning = new SongsLearning();
         addSongsSongsLearning(songsLearning, jsonObject);
         return songsLearning;
     }
 
-    // MODIFIES: SongsToLearn
-    // EFFECTS: parses songs from JSON object and adds them to SongsToLearn
+    // MODIFIES: SongsLearning
+    // EFFECTS: parses songs from JSON object and adds them to SongsLearning
     private void addSongsSongsLearning(SongsLearning songsLearning, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("songs");
         for (Object json : jsonArray) {
@@ -117,8 +117,8 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: SongsToLearn
-    // EFFECTS: parses song from JSON object and adds it to SongsToLearn
+    // MODIFIES: SongsLearning
+    // EFFECTS: parses song from JSON object and adds it to SongsLearning
     private void addSongSongsLearning(SongsLearning songsLearning, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
         String artist = jsonObject.getString("artist");
@@ -133,15 +133,15 @@ public class JsonReader {
         songsLearning.addSongToSongsLearning(song);
     }
 
-    // EFFECTS: parses SongsToLearn from JSON object and returns it
+    // EFFECTS: parses SongsLearned from JSON object and returns it
     public SongsLearned parseSongsLearned(JSONObject jsonObject) {
         SongsLearned songsLearned = new SongsLearned();
         addSongsSongsLearned(songsLearned, jsonObject);
         return songsLearned;
     }
 
-    // MODIFIES: SongsToLearn
-    // EFFECTS: parses songs from JSON object and adds them to SongsToLearn
+    // MODIFIES: SongsLearned
+    // EFFECTS: parses songs from JSON object and adds them to SongsLearned
     private void addSongsSongsLearned(SongsLearned songsLearned, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("songs");
         for (Object json : jsonArray) {
@@ -150,8 +150,8 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: SongsToLearn
-    // EFFECTS: parses song from JSON object and adds it to SongsToLearn
+    // MODIFIES: SongsLearned
+    // EFFECTS: parses song from JSON object and adds it to SongsLearned
     private void addSongSongsLearned(SongsLearned songsLearned, JSONObject jsonObject) {
         String title = jsonObject.getString("title");
         String artist = jsonObject.getString("artist");
