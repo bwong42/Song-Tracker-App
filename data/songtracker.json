@@ -3,8 +3,18 @@
         "artist": "a",
         "instrument": "a",
         "title": "a",
-        "favourite": true
+        "favourite": false
     }]},
-    "songsToLearn": {"songs": []},
-    "songsLearning": {"songs": []}
+    "songsToLearn": {"songs": [{
+        "artist": "c",
+        "instrument": "c",
+        "title": "c",
+        "favourite": false
+    }]},
+    "songsLearning": {"songs": [{
+        "artist": "b",
+        "instrument": "b",
+        "title": "b",
+        "favourite": false
+    }]}
 }

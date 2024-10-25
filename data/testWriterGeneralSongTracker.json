@@ -1,0 +1,44 @@
+{
+    "songsLearned": {"songs": [
+        {
+            "artist": "ok",
+            "instrument": "xylophone",
+            "title": "none",
+            "favourite": false
+        },
+        {
+            "artist": "Ben",
+            "instrument": "car",
+            "title": "Star",
+            "favourite": false
+        }
+    ]},
+    "songsToLearn": {"songs": [
+        {
+            "artist": "Me",
+            "instrument": "Guitar",
+            "title": "Happy",
+            "favourite": false
+        },
+        {
+            "artist": "You",
+            "instrument": "Piano",
+            "title": "Test",
+            "favourite": false
+        }
+    ]},
+    "songsLearning": {"songs": [
+        {
+            "artist": "b",
+            "instrument": "c",
+            "title": "a",
+            "favourite": false
+        },
+        {
+            "artist": "z",
+            "instrument": "z",
+            "title": "z",
+            "favourite": false
+        }
+    ]}
+}

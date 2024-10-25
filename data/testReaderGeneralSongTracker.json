@@ -1,0 +1,38 @@
+{
+    "songsLearned": {
+        "songs": [
+            {
+                "artist": "Ben",
+                "instrument": "car",
+                "title": "Star",
+                "favourite": false
+            }
+        ]
+    },
+    "songsToLearn": {
+        "songs": [
+            {
+                "artist": "You",
+                "instrument": "Piano",
+                "title": "Test",
+                "favourite": false
+            }
+        ]
+    },
+    "songsLearning": {
+        "songs": [
+            {
+                "artist": "z",
+                "instrument": "z",
+                "title": "z",
+                "favourite": false
+            },
+            {
+                "artist": "a",
+                "instrument": "a",
+                "title": "a",
+                "favourite": false
+            }
+        ]
+    }
+}
