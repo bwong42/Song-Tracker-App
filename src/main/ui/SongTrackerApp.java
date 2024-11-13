@@ -337,7 +337,10 @@ public class SongTrackerApp extends JFrame{
         }
     }
 
-        private void setupGUI() {
+    // MODIFIES: this
+    // EFFECTS: Setsup the initial GUI for SongTrackerApp with a plain white
+    // background and 6 buttons for the corresponding actions for my application
+    private void setupGUI() {
         setTitle("Song Tracker");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
