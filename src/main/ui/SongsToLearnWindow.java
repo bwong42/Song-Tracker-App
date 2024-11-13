@@ -6,6 +6,9 @@ import model.SongsToLearn;
 import javax.swing.*;
 import java.awt.*;
 
+// Represents a SongsToLearnWindow that is a GUI for the SongsToLearnWindow
+// when that button is clicked on the main menu. Has functionalities to view songs
+// in SongsToLearn, add songs and remove songs.
 public class SongsToLearnWindow extends JFrame {
     private SongsToLearn songsToLearn;
     private JTextArea songsTextArea;
@@ -17,6 +20,8 @@ public class SongsToLearnWindow extends JFrame {
         setSize(400, 400);
         setLocationRelativeTo(null); // Centers the window
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Only closes this window
+
+        setLayout(new BorderLayout());
 
         // Create a text area to display the list of songs
         JTextArea songsTextArea = new JTextArea();
@@ -41,5 +46,12 @@ public class SongsToLearnWindow extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         setVisible(true);
+
+        JPanel buttonPanel = new JPanel();
+        JButton addButton = new JButton("Add Song");
+        JButton removeButton = new JButton("Remove Song");
+        buttonPanel.add(addButton);
+        buttonPanel.add(removeButton);
+        add(buttonPanel, BorderLayout.SOUTH);
     }
 }
