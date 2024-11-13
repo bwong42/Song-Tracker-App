@@ -65,7 +65,8 @@ public class SongsToLearnWindow extends JFrame {
 
     }
 
-    // Refreshes the text area with the current list of songs
+    // MODIFIES: this
+    // EFFECTS: Refreshes the text area with the current list of songs
     private void refreshSongsList() {
         if (songsToLearn.getSongs().isEmpty()) {
             songsTextArea.setText("You have no songs on your learn list.");
