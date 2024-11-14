@@ -16,13 +16,14 @@ public class SongsToLearnWindow extends JFrame {
     private JTextArea songsTextArea;
 
     // MODIFIES: this
-    // EFFECTS: Creates a SongsToLearnWindow that initializes all of the layouts, title
+    // EFFECTS: Creates a SongsToLearnWindow that initializes all of the layouts,
+    // title
     // and size for all of the buttons & songs in SongsToLearnWindow
     public SongsToLearnWindow(SongsToLearn songsToLearn) {
         this.songsToLearn = songsToLearn;
 
         setTitle("Songs to Learn");
-        setSize(400, 400);
+        setSize(600, 400);
         setLocationRelativeTo(null); // Centers the window
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Only closes this window
 
@@ -41,26 +42,37 @@ public class SongsToLearnWindow extends JFrame {
         JPanel buttonPanel = new JPanel();
         JButton addButton = new JButton("Add Song");
         JButton removeButton = new JButton("Remove Song");
+        JButton chooseButton = new JButton("Choose Song to Learn");
         buttonPanel.add(addButton);
         buttonPanel.add(removeButton);
+        buttonPanel.add(chooseButton);
+
         add(buttonPanel, BorderLayout.SOUTH);
 
-                // Action listener for the Add button
-                addButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        addSong();
-                    }
-                });
-        
-                // Action listener for the Remove button
-                removeButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        removeSong();
-                    }
-                });
-        
+        // Action listener for the Add button
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addSong();
+            }
+        });
+
+        // Action listener for the Remove button
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removeSong();
+            }
+        });
+
+        // Action listener for the Choose button
+        chooseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                chooseSong();
+            }
+        });
+
         setVisible(true);
 
     }
@@ -74,9 +86,9 @@ public class SongsToLearnWindow extends JFrame {
             StringBuilder songsList = new StringBuilder();
             for (Song song : songsToLearn.getSongs()) {
                 songsList.append("Title: ").append(song.getTitle())
-                          .append("\nArtist: ").append(song.getArtist())
-                          .append("\nInstrument: ").append(song.getInstrument())
-                          .append("\n\n");
+                        .append("\nArtist: ").append(song.getArtist())
+                        .append("\nInstrument: ").append(song.getInstrument())
+                        .append("\n\n");
             }
             songsTextArea.setText(songsList.toString());
         }
@@ -90,9 +102,9 @@ public class SongsToLearnWindow extends JFrame {
         JTextField instrumentField = new JTextField();
 
         Object[] message = {
-            "Title:", titleField,
-            "Artist:", artistField,
-            "Instrument:", instrumentField
+                "Title:", titleField,
+                "Artist:", artistField,
+                "Instrument:", instrumentField
         };
 
         int option = JOptionPane.showConfirmDialog(this, message, "Add New Song", JOptionPane.OK_CANCEL_OPTION);
@@ -106,7 +118,8 @@ public class SongsToLearnWindow extends JFrame {
                 songsToLearn.addSongToSongsToLearn(newSong);
                 refreshSongsList(); // Refresh the list after adding
             } else {
-                JOptionPane.showMessageDialog(this, "All fields must be filled in.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "All fields must be filled in.", "Input Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -129,6 +142,44 @@ public class SongsToLearnWindow extends JFrame {
                 refreshSongsList(); // Refresh the list after removing
             } else {
                 JOptionPane.showMessageDialog(this, "Song not found.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Method to remove a song from the list
+    private void chooseSong() {
+        if (songsToLearn.getSongs().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "There are no songs to choose.", "No Songs Available",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Get list of song titles
+        String[] songTitles = songsToLearn.getSongs().stream().map(Song::getTitle).toArray(String[]::new);
+        String chosenTitle = (String) JOptionPane.showInputDialog(
+                this,
+                "Select a song to mark as learning:",
+                "Choose Song to Learn",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                songTitles,
+                songTitles[0]);
+
+        if (chosenTitle != null) {
+            Song chosenSong = null;
+            for (Song song : songsToLearn.getSongs()) {
+                if (song.getTitle().equalsIgnoreCase(chosenTitle)) {
+                    chosenSong = song;
+                    break;
+                }
+            }
+
+            if (chosenSong != null) {
+                songsToLearn.removeSongToSongsToLearn(chosenSong);
+                refreshSongsList(); // Refresh the list after marking as learning
+                JOptionPane.showMessageDialog(this, "The song \"" + chosenTitle + "\" has been marked as learning.",
+                        "Song Chosen", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }
