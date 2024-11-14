@@ -359,7 +359,7 @@ public class SongTrackerApp extends JFrame{
         JButton loadButton = new JButton("Load");
         JButton quitButton = new JButton("Quit");
 
-        viewSongsToLearnButton.addActionListener(e -> viewSongsToLearn());
+        viewSongsToLearnButton.addActionListener(e -> new SongsToLearnWindow(songsToLearn, songsLearning));
         viewSongsLearningButton.addActionListener(e -> viewSongsLearning());
         viewSongsLearnedButton.addActionListener(e -> viewSongsLearned());
         saveButton.addActionListener(e -> saveSongTracker());
@@ -372,7 +372,7 @@ public class SongTrackerApp extends JFrame{
         contentPane.add(saveButton);
         contentPane.add(loadButton);
         contentPane.add(quitButton);
-        
+
         setVisible(true);
     }
 
