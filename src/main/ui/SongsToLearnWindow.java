@@ -26,7 +26,7 @@ public class SongsToLearnWindow extends JFrame {
             this.songsLearning = songsLearning;
     
             setTitle("Songs to Learn");
-            setSize(600, 400);
+            setSize(600, 600);
             setLocationRelativeTo(null); // Centers the window
             setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Only closes this window
     
