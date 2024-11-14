@@ -38,14 +38,14 @@ public class SongsLearnedWindow extends JFrame {
 
         JPanel buttonPanel = new JPanel();
         JButton removeButton = new JButton("Remove Song");
-        JButton finishButton = new JButton("Mark Songs as Finished Learning");
+        JButton finishButton = new JButton("Mark Songs as Favourite");
         buttonPanel.add(finishButton);
         buttonPanel.add(removeButton);
 
         add(buttonPanel, BorderLayout.SOUTH);
 
         // // Action listener for the Finish button
-        finishButton.addActionListener(e -> finishSong());
+        finishButton.addActionListener(e -> favouriteSong());
 
         setVisible(true);
     }
@@ -58,10 +58,13 @@ public class SongsLearnedWindow extends JFrame {
         } else {
             StringBuilder songsList = new StringBuilder();
             for (Song song : songsLearned.getSongs()) {
+                if(song.isFavourite()){
+                    songsList.append("Favourited\n");
+                }
                 songsList.append("Title: ").append(song.getTitle())
                         .append("\nArtist: ").append(song.getArtist())
-                        .append("\nInstrument: ").append(song.getInstrument())
-                        .append("\n\n");
+                        .append("\nInstrument: ").append(song.getInstrument());
+                songsList.append("\n\n");
             }
             songsTextArea.setText(songsList.toString());
         }
@@ -69,7 +72,7 @@ public class SongsLearnedWindow extends JFrame {
 
     // MODIFIES: this
     // EFFECTS: Method to remove a song from the list
-    private void finishSong() {
+    private void favouriteSong() {
         if (songsLearned.getSongs().isEmpty()) {
             JOptionPane.showMessageDialog(this, "There are no songs to choose.", "No Songs Available",
                     JOptionPane.WARNING_MESSAGE);
@@ -80,7 +83,7 @@ public class SongsLearnedWindow extends JFrame {
         String[] songTitles = songsLearned.getSongs().stream().map(Song::getTitle).toArray(String[]::new);
         String chosenTitle = (String) JOptionPane.showInputDialog(
                 this,
-                "Choose a song to finish learning:",
+                "Choose a song to favourite:",
                 "Choose Song to Finish",
                 JOptionPane.PLAIN_MESSAGE,
                 null,
@@ -97,10 +100,9 @@ public class SongsLearnedWindow extends JFrame {
             }
 
             if (chosenSong != null) {
-                songsLearned.removeSongToSongsLearned(chosenSong);
-                songsLearned.addSongToSongsLearned(chosenSong);
+                chosenSong.makeFavourite();
                 refreshSongsList();
-                JOptionPane.showMessageDialog(this, "The song \"" + chosenTitle + "\" has been marked as learning.",
+                JOptionPane.showMessageDialog(this, "The song \"" + chosenTitle + "\" has been favourited.",
                         "Song Chosen", JOptionPane.INFORMATION_MESSAGE);
             }
         }
