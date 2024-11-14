@@ -6,8 +6,6 @@ import model.SongsToLearn;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 // Represents a SongsToLearnWindow that is a GUI for the SongsToLearnWindow
 // when that button is clicked on the main menu. Has functionalities to view songs
