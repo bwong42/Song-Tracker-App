@@ -85,7 +85,6 @@ public class SongsLearningWindow extends JFrame {
                     break;
                 }
             }
-
             if (songToRemove != null) {
                 songsLearning.removeSongToSongsLearning(songToRemove);
                 refreshSongsList(); // Refresh the list after removing
