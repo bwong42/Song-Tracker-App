@@ -111,6 +111,7 @@ public class SongsLearnedWindow extends JFrame {
                 chosenSong.makeFavourite();
                 refreshSongsList();
                 showStarEffect();
+
             }
         }
     }
