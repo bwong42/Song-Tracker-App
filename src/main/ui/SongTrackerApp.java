@@ -315,6 +315,8 @@ public class SongTrackerApp extends JFrame{
             jsonWriter.write(songsToLearn, songsLearning, songsLearned);
             jsonWriter.close();
             System.out.println("Saved " + "Song Tracker Status" + " to " + JSON_STORE);
+            JOptionPane.showMessageDialog(this, "Your application has been saved",
+            "Saved Song Tracker Status", JOptionPane.INFORMATION_MESSAGE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -331,6 +333,8 @@ public class SongTrackerApp extends JFrame{
             songsLearning = jsonReader.parseSongsLearning(jsonObject.getJSONObject("songsLearning"));
             songsLearned = jsonReader.parseSongsLearned(jsonObject.getJSONObject("songsLearned"));
             System.out.println("Loaded " + "Song Tracker Status" + " from " + JSON_STORE);
+            JOptionPane.showMessageDialog(this, "Your application has been loaded",
+            "Loaded Song Tracker Status", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
