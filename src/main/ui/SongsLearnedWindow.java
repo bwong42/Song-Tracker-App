@@ -35,10 +35,8 @@ public class SongsLearnedWindow extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         JPanel buttonPanel = new JPanel();
-        JButton removeButton = new JButton("Remove Song");
         JButton finishButton = new JButton("Mark Songs as Favourite");
         buttonPanel.add(finishButton);
-        buttonPanel.add(removeButton);
 
         add(buttonPanel, BorderLayout.SOUTH);
 
