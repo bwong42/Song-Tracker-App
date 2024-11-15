@@ -114,6 +114,13 @@ public class SongsLearningWindow extends JFrame {
                 songTitles,
                 songTitles[0]);
 
+        chooseTitle(chosenTitle);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Helper method to reduce line length. Handles choosing title input
+    // and prints popup for when option has been chosen.
+    private void chooseTitle(String chosenTitle) {
         if (chosenTitle != null) {
             Song chosenSong = null;
             for (Song song : songsLearning.getSongs()) {
