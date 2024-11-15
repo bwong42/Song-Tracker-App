@@ -1,10 +1,10 @@
 {
-    "songsLearned": {"songs": []},
-    "songsToLearn": {"songs": [{
-        "artist": "sdsd",
-        "instrument": "sdsd",
-        "title": "asds",
-        "favourite": false
+    "songsLearned": {"songs": [{
+        "artist": "Laufey",
+        "instrument": "Guitar",
+        "title": "Valentine",
+        "favourite": true
     }]},
+    "songsToLearn": {"songs": []},
     "songsLearning": {"songs": []}
 }

@@ -22,7 +22,7 @@ public class SongsLearningWindow extends JFrame {
         this.songsLearning = songsLearning;
         this.songsLearned = songsLearned;
 
-        setTitle("Current Songs Learning");
+        setTitle("Songs Learning");
         setSize(600, 600);
         setLocationRelativeTo(null); // Centers the window
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Only closes this window
@@ -60,7 +60,7 @@ public class SongsLearningWindow extends JFrame {
     // EFFECTS: Refreshes the text area with the current list of songs
     private void refreshSongsList() {
         if (songsLearning.getSongs().isEmpty()) {
-            songsTextArea.setText("You have no songs on your learn list.");
+            songsTextArea.setText("You have no songs currently learning.");
         } else {
             StringBuilder songsList = new StringBuilder();
             for (Song song : songsLearning.getSongs()) {
