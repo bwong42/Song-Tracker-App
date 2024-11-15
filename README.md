@@ -34,6 +34,8 @@ This project is of interest to me because I personally play guitar and am contin
 
 - You can generate the second required action related to the user story "adding multiple Xs to a Y" by clicking on either the add / remove / mark song learning song button in "Songs To Learn", mark finished song button in "Songs Learning" and "Favourite" button in "Songs Learned"
 
-- You can locate my visual component by...
-- You can save the state of my application by...
-- You can reload the state of my application by...
+- You can locate my visual component by favouriting a song in Songs Learned and seeing a star pop up.
+
+- You can save the state of my application by clicking on the save button in the main menu.
+
+- You can reload the state of my application by clicking on the load button in the main menu.
