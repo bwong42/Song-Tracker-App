@@ -15,13 +15,12 @@ import persistence.JsonWriter;
 import javax.swing.*;
 import java.awt.*;
 
-
 // Represents a SongTrackerApp which has the fields songsToLearn,
 // songsLearning, songsLearned and Scanner to track input, contains
 // all of the lists and allows for them to be viewed, and add or remove
 // song from each list. Also declares the jsonWriter and jsonReader fields
 // to allow for the saving and loading of our application states.
-public class SongTrackerApp extends JFrame{
+public class SongTrackerApp extends JFrame {
     private static final String JSON_STORE = "./data/songtracker.json";
     private SongsToLearn songsToLearn;
     private SongsLearning songsLearning;
@@ -316,7 +315,7 @@ public class SongTrackerApp extends JFrame{
             jsonWriter.close();
             System.out.println("Saved " + "Song Tracker Status" + " to " + JSON_STORE);
             JOptionPane.showMessageDialog(this, "Your application has been saved",
-            "Saved Song Tracker Status", JOptionPane.INFORMATION_MESSAGE);
+                    "Saved Song Tracker Status", JOptionPane.INFORMATION_MESSAGE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -334,7 +333,7 @@ public class SongTrackerApp extends JFrame{
             songsLearned = jsonReader.parseSongsLearned(jsonObject.getJSONObject("songsLearned"));
             System.out.println("Loaded " + "Song Tracker Status" + " from " + JSON_STORE);
             JOptionPane.showMessageDialog(this, "Your application has been loaded",
-            "Loaded Song Tracker Status", JOptionPane.INFORMATION_MESSAGE);
+                    "Loaded Song Tracker Status", JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
@@ -344,39 +343,46 @@ public class SongTrackerApp extends JFrame{
     // EFFECTS: Setsup the initial GUI for SongTrackerApp with a plain white
     // background and 6 buttons for the corresponding actions for my application
     private void setupGUI() {
+        configureFrame();
+        contentPane();
+
+        setVisible(true);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Sets up the initial frame for GUI
+    private void configureFrame() {
         setTitle("Song Tracker");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBackground(Color.WHITE);
+    }
 
-        // Set a white content pane
+    // MODIFIES: this
+    // EFFECTS: Creates contentPane and instantiates all JButtons and adds
+    // action Listener for each corresponding button
+    private void contentPane() {
         JPanel contentPane = new JPanel();
         contentPane.setBackground(Color.WHITE);
         setContentPane(contentPane);
         contentPane.setLayout(new GridLayout(6, 1, 10, 10));
-
         JButton viewSongsToLearnButton = new JButton("View Songs to Learn");
         JButton viewSongsLearningButton = new JButton("View Songs Learning");
         JButton viewSongsLearnedButton = new JButton("View Songs Learned");
         JButton saveButton = new JButton("Save");
         JButton loadButton = new JButton("Load");
         JButton quitButton = new JButton("Quit");
-
         viewSongsToLearnButton.addActionListener(e -> new SongsToLearnWindow(songsToLearn, songsLearning));
         viewSongsLearningButton.addActionListener(e -> new SongsLearningWindow(songsLearning, songsLearned));
         viewSongsLearnedButton.addActionListener(e -> new SongsLearnedWindow(songsLearned));
         saveButton.addActionListener(e -> saveSongTracker());
         loadButton.addActionListener(e -> loadSongTracker());
         quitButton.addActionListener(e -> System.exit(0));
-
         contentPane.add(viewSongsToLearnButton);
         contentPane.add(viewSongsLearningButton);
         contentPane.add(viewSongsLearnedButton);
         contentPane.add(saveButton);
         contentPane.add(loadButton);
         contentPane.add(quitButton);
-
-        setVisible(true);
     }
-
 }
