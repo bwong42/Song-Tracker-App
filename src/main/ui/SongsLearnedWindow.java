@@ -20,10 +20,7 @@ public class SongsLearnedWindow extends JFrame {
     public SongsLearnedWindow(SongsLearned songsLearned) {
         this.songsLearned = songsLearned;
 
-        setTitle("Songs Finished ");
-        setSize(600, 600);
-        setLocationRelativeTo(null); // Centers the window
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Only closes this window
+        setupFrame();
 
         setLayout(new BorderLayout());
 
@@ -56,6 +53,15 @@ public class SongsLearnedWindow extends JFrame {
         add(starLabel, BorderLayout.NORTH); // Add to the center of the window
 
         setVisible(true);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Sets up the initial frame for GUI
+    private void configureFrame() {
+        setTitle("Songs Finished ");
+        setSize(600, 600);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     // MODIFIES: this
