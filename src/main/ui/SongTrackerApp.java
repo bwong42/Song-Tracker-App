@@ -360,7 +360,7 @@ public class SongTrackerApp extends JFrame{
 
         viewSongsToLearnButton.addActionListener(e -> new SongsToLearnWindow(songsToLearn, songsLearning));
         viewSongsLearningButton.addActionListener(e -> new SongsLearningWindow(songsLearning, songsLearned));
-        viewSongsLearnedButton.addActionListener(e -> viewSongsLearned());
+        viewSongsLearnedButton.addActionListener(e -> new SongsLearnedWindow(songsLearned));
         saveButton.addActionListener(e -> saveSongTracker());
         loadButton.addActionListener(e -> loadSongTracker());
         quitButton.addActionListener(e -> System.exit(0));
