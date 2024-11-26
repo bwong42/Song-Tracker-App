@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import org.json.JSONObject;
 
+import model.EventLog;
 import model.Song;
 import model.SongsLearned;
 import model.SongsLearning;
@@ -57,6 +58,17 @@ public class SongTrackerApp extends JFrame {
             }
         }
         System.out.println("\nThanks for using the application!");
+        printLog(EventLog.getInstance());
+
+    }
+
+    // EFFECTS: Prints each event from EventLog to terminal
+    public void printLog(EventLog el) {
+        for (model.Event next : el) {
+            System.out.println(next);
+        }
+
+        repaint();
     }
 
     // MODIFIES: this
@@ -376,7 +388,10 @@ public class SongTrackerApp extends JFrame {
         viewSongsLearnedButton.addActionListener(e -> new SongsLearnedWindow(songsLearned));
         saveButton.addActionListener(e -> saveSongTracker());
         loadButton.addActionListener(e -> loadSongTracker());
-        quitButton.addActionListener(e -> System.exit(0));
+        quitButton.addActionListener(e -> {
+            printLog(EventLog.getInstance());
+            System.exit(0);
+        });
         contentPane.add(viewSongsToLearnButton);
         contentPane.add(viewSongsLearningButton);
         contentPane.add(viewSongsLearnedButton);

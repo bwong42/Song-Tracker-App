@@ -1,10 +1,5 @@
 {
-    "songsLearned": {"songs": [{
-        "artist": "Laufey",
-        "instrument": "Guitar",
-        "title": "Valentine",
-        "favourite": true
-    }]},
+    "songsLearned": {"songs": []},
     "songsToLearn": {"songs": []},
     "songsLearning": {"songs": []}
 }
