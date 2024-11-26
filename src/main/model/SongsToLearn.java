@@ -20,12 +20,14 @@ public class SongsToLearn {
     // EFFECTS: Adds song to SongsToLearn
     public void addSongToSongsToLearn(Song song) {
         this.songsToLearn.add(song);
+        EventLog.getInstance().logEvent(new Event("Added new song to learn:" + song.getTitle()));
     }
 
     // REQUIRES: songsToLearn is non-empty
     // EFFECTS: Removes song from SongsToLearn
     public void removeSongToSongsToLearn(Song song) {
         this.songsToLearn.remove(song);
+        EventLog.getInstance().logEvent(new Event("Removed song to learn:" + song.getTitle()));
     }
 
     public Song getSong(int index) {
