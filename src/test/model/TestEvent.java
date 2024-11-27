@@ -21,18 +21,18 @@ public class TestEvent {
 
     @BeforeEach
     public void runBefore() {
-        e = new Event("Sensor open at door"); // (1)
+        e = new Event("Song Finished Learning: Get You"); // (1)
         d = Calendar.getInstance().getTime(); // (2)
     }
 
     @Test
     public void testEvent() {
-        assertEquals("Sensor open at door", e.getDescription());
+        assertEquals("Song Finished Learning: Get You", e.getDescription());
         assertEquals(d, e.getDate());
     }
 
     @Test
     public void testToString() {
-        assertEquals(d.toString() + "\n" + "Sensor open at door", e.toString());
+        assertEquals(d.toString() + "\n" + "Song Finished Learning: Get You", e.toString());
     }
 }

@@ -1,5 +1,18 @@
 {
-    "songsLearned": {"songs": []},
+    "songsLearned": {"songs": [
+        {
+            "artist": "Laufey",
+            "instrument": "Singing",
+            "title": "Valentine",
+            "favourite": true
+        },
+        {
+            "artist": "Me",
+            "instrument": "Guitar",
+            "title": "Get You",
+            "favourite": false
+        }
+    ]},
     "songsToLearn": {"songs": []},
     "songsLearning": {"songs": []}
 }
