@@ -373,10 +373,8 @@ public class SongTrackerApp extends JFrame {
     // EFFECTS: Creates contentPane and instantiates all JButtons and adds
     // action Listener for each corresponding button
     private void contentPane() {
-        JPanel contentPane = new JPanel();
-        contentPane.setBackground(Color.WHITE);
+        JPanel contentPane = createContentPane();
         setContentPane(contentPane);
-        contentPane.setLayout(new GridLayout(6, 1, 10, 10));
         JButton viewSongsToLearnButton = new JButton("View Songs to Learn");
         JButton viewSongsLearningButton = new JButton("View Songs Learning");
         JButton viewSongsLearnedButton = new JButton("View Songs Learned");
@@ -398,5 +396,14 @@ public class SongTrackerApp extends JFrame {
         contentPane.add(saveButton);
         contentPane.add(loadButton);
         contentPane.add(quitButton);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Creates contentPane and returns contentPane
+    private JPanel createContentPane() {
+        JPanel contentPane = new JPanel();
+        contentPane.setBackground(Color.WHITE);
+        contentPane.setLayout(new GridLayout(6, 1, 10, 10));
+        return contentPane;
     }
 }
