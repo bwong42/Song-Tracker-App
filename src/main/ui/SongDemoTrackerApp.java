@@ -16,12 +16,12 @@ import persistence.JsonWriter;
 import javax.swing.*;
 import java.awt.*;
 
-// Represents a SongDemoTrackerApp which has the fields songsToLearn,
+// Represents a SongTrackerApp which has the fields songsToLearn,
 // songsLearning, songsLearned and Scanner to track input, contains
 // all of the lists and allows for them to be viewed, and add or remove
 // song from each list. Also declares the jsonWriter and jsonReader fields
 // to allow for the saving and loading of our application states.
-public class SongDemoTrackerApp extends JFrame {
+public class SongTrackerApp extends JFrame {
     private static final String JSON_STORE = "./data/songtracker.json";
     private SongsToLearn songsToLearn;
     private SongsLearning songsLearning;
@@ -31,7 +31,7 @@ public class SongDemoTrackerApp extends JFrame {
     private JsonReader jsonReader;
 
     // EFFECTS: starts runSongTracker()
-    public SongDemoTrackerApp() {
+    public SongTrackerApp() {
         runSongTracker();
     }
 
@@ -352,7 +352,7 @@ public class SongDemoTrackerApp extends JFrame {
     }
 
     // MODIFIES: this
-    // EFFECTS: Setsup the initial GUI for SongDemoTrackerApp with a plain white
+    // EFFECTS: Setsup the initial GUI for SongTrackerApp with a plain white
     // background and 6 buttons for the corresponding actions for my application
     private void setupGUI() {
         configureFrame();
